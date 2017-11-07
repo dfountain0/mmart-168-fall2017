@@ -1,4 +1,3 @@
-/* eslint-disable quotes*/
 var tweets = {
     "statuses": [
         {
