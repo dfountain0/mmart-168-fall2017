@@ -26,6 +26,9 @@ const clearData = () => {
     }
 }
 
+/* The getData function is taking the statuses that have the searched
+ keywords and only returning the first two indexes in the array*/
+
 //Note: language codes here: https://www.w3schools.com/tags/ref_language_codes.asp
 const getData = () => {
 
@@ -46,7 +49,7 @@ const getData = () => {
 
             // clear out existing tweets:
             clearData()
-
+/*
             // output the text of the first tweet:
             status = json.statuses[0]
             div = document.createElement("div")
@@ -63,6 +66,30 @@ const getData = () => {
             div.appendChild(textNode)
             document.getElementById("results").appendChild(div)
 
+            // output the text of the third tweet:
+            status = json.statuses[2]
+            div = document.createElement("div")
+            div.className = "tweet"
+            textNode = document.createTextNode(status.text)
+            div.appendChild(textNode)
+            document.getElementById("results").appendChild(div)
+
+            // output the text of the fourth tweet:
+            status = json.statuses[3]
+            div = document.createElement("div")
+            div.className = "tweet"
+            textNode = document.createTextNode(status.text)
+            div.appendChild(textNode)
+            document.getElementById("results").appendChild(div)
+
+            // output the text of the fifth tweet:
+            status = json.statuses[4]
+            div = document.createElement("div")
+            div.className = "tweet"
+            textNode = document.createTextNode(status.text)
+            div.appendChild(textNode)
+            document.getElementById("results").appendChild(div)
+*/
             // 1. Describe what you think this code is doing.
 
             // 2. output the text of the third tweet:
@@ -75,13 +102,16 @@ const getData = () => {
             //    and ending right before this comment. Then, un-comment the
             //    code below:
 
-            /*json.statuses.forEach(function (status) {
+            /*The forEach  loop is saying take each status create a div element for that status
+            give that div a class name called tweet and send that to the array of results from the keyword search */
+
+            json.statuses.forEach(function (status) {
                 div = document.createElement("div")
                 div.className = "tweet"
                 textNode = document.createTextNode(status.text)
                 div.appendChild(textNode)
                 document.getElementById("results").appendChild(div)
-            })*/
+            })
 
         })
 };
