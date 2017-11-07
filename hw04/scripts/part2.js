@@ -22,10 +22,12 @@ const setLanguage = (code) => {
 /*The get data function searches for all of the tweets that have the keyword
 from the input search and puts them into an array of objects with
 key value pairs*/
+
 //Step 2: Queations #2-4
 // jsonData.statuses[0]
 // jsonData.statuses[4].text
 // jsonData.statuses[1].user.name
+
 
 const getData = () => {
     const term = document.getElementById('term').value
