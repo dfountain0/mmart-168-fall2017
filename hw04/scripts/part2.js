@@ -23,7 +23,7 @@ const setLanguage = (code) => {
 from the input search and puts them into an array of objects with
 key value pairs*/
 
-//Step 2: Queations #2-4
+//Step 2: Queations 2-4
 // jsonData.statuses[0]
 // jsonData.statuses[4].text
 // jsonData.statuses[1].user.name
