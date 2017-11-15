@@ -30,8 +30,10 @@ const clearData = () => {
 const getData = () => {
 
     const term = document.getElementById('term').value
+    console.log(term)
     const baseURL = 'https://mmart168-twitter-proxy.herokuapp.com/1.1/search/tweets.json?q=' + term
     twitterURL = baseURL + '&lang=' + languageCode
+    console.log(twitterURL)
     fetch(twitterURL)
         .then(function(response) {
             return response.json()
@@ -45,6 +47,23 @@ const getData = () => {
 
             // clear out existing tweets:
             clearData()
+            /* 1.The reverseText function takes in a parameter called 'string'.
+            2. We split each character in the string using ".split" whichthen seperates
+            each character in the string and puts them in an array in which each
+            character is now an index within the array. We then set that value into
+            a variable called splitString.
+            3. Next we take the splitString variable and use an array method called
+            ".reverse" which reverses the properties in the Array and set that value to a variable called reverseArray.
+            4. Lastly we take our reverseArray variable and use another array method called
+            .join and join all of the properties within the array together making them one string.
+            and set that value to the last variable we will use called joinArray
+            5. now we return joinArray which will give us our reversed string.*/
+            function reverseText(string) {
+              let splitString = string.split('')
+              let reverseArray = splitString.reverse()
+              let joinArray = reverseArray.join('')
+              return joinArray
+            }
 
             // ---------------------- TASK 1 -----------------------------------
             // 1. Write a function called 'reverseText' that takes a single string as an input. It should return that string with all characters reversed
@@ -52,6 +71,15 @@ const getData = () => {
             // You can test this in the browser by updating the forEach function to reverse every tweet's text
             // HINT: This is a common interview question to screen out javascript devs who don't understand the language's native functions. Google around - you might find a good solution for this problem
             // Once you've written your reverse text function, write a comment describing how it works.
+
+            function reverseTweet(string) {
+              if (string.includes('#')) {
+                return string
+              } else {
+                return reverseText(string)
+              }
+            }
+
 
             // ---------------------- TASK 2 -----------------------------------
             // 2. Now, write a function called 'reverseTweet' that takes a single string as an input. If the string contains a hashtag (#), it should return the string.
@@ -67,7 +95,12 @@ const getData = () => {
             json.statuses.forEach((status) => {
                 div = document.createElement('div')
                 div.className = 'tweet'
-                textNode = document.createTextNode(status.text)
+                textNode = document.createTextNode(reverseTweet(status.text))
+
+
+                if (!status.text.includes('#')) {
+                    div.className += ' tweet-red'
+                }
                 div.appendChild(textNode)
                 document.getElementById('results').appendChild(div)
             })

@@ -1,6 +1,7 @@
 let language = 'English'
 let languageCode = 'en'
 let jsonData
+let tweetsWithHashtags
 
 
 const setLanguage = (code) => {
@@ -47,16 +48,18 @@ const getData = () => {
             clearData()
 
             // ---------------------- TASK 1 -----------------------------------
-            // 1. Create a new variable called tweetsWithHashtags
-            // 2. Call the 'filter' function on the json.statuses array. The filter function returns an array, so you can assign it `tweetsWithHashtags`. Read more about filter here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-            // 3. Write an anonymous function that checks each tweet's text, and filters out tweets that do NOT have hashtags.
-            // 4. Update the forEach function so that it runs on the new tweetsWithHashtags array
+            // 1. *Line 4*Create a new variable called tweetsWithHashtags
+            // 2. *Line*Call the 'filter' function on the json.statuses array. The filter function returns an array, so you can assign it `tweetsWithHashtags`. Read more about filter here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+            // 3. *Line*Write an anonymous function that checks each tweet's text, and filters out tweets that do NOT have hashtags.
+            // 4. *Line*Update the forEach function so that it runs on the new tweetsWithHashtags array
 
             // ---------------------- DELIVERABLE -----------------------------------
             // When somebody searches for a tweet, they will only see tweets that contain hashtags.
+            tweetsWithHashtags = json.statuses.filter(function(status) {
+              return status.text.includes('#')
+            })
 
-
-            json.statuses.forEach((status) => {
+            tweetsWithHashtags.forEach((status) => {
                 div = document.createElement('div')
                 div.className = 'tweet'
                 textNode = document.createTextNode(status.text)
